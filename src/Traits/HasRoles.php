@@ -149,7 +149,7 @@ trait HasRoles
             return $this->roles->contains('id', $roles->id);
         }
 
-        if (is_array($roles)) {
+        if (is_array($roles) or $roles instanceof \Illuminate\Support\Collection) {
             foreach ($roles as $role) {
                 if ($this->hasRole($role)) {
                     return true;
